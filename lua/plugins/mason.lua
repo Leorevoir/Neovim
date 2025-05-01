@@ -11,7 +11,7 @@ return {
         package_uninstalled = "✗",
       },
     },
-    ensure_installed = { "clangd", "pyright", "lua_ls" },
+    ensure_installed = { "clangd", "pyright", "lua_ls" }
   },
   config = function(_, opts)
     require("mason").setup(opts)
