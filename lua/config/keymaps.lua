@@ -51,3 +51,18 @@ map('n', '<leader>t', ':sp +:terminal<CR>i', opts)
 --------------------------------
 
 map('t', '<Esc>', '<C-\\><C-n>', opts)
+
+--------------------------------
+--- bufferline
+--------------------------------
+
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", opts)
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", opts)
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts)
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", opts)
+map("n", "<leader>bd", "<cmd>bdelete<cr>", opts)
+map("n", "<leader>bb", "<cmd>e #<cr>", opts)
+map("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", opts)
+map("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>", opts)
+map("n", "<leader>bP", "<cmd>BufferLineGroupClose ungrouped<cr>", opts)
+
