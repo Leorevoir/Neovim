@@ -1,0 +1,46 @@
+---
+name: test neovim config
+
+on:
+  push:
+    branches:
+      - main
+      - gitaction
+
+  pull_request:
+
+jobs:
+  test:
+    name: neovim config test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout config
+        uses: actions/checkout@v3
+
+      - name: install neovim
+        run: |
+          sudo add-apt-repository ppa:neovim-ppa/stable -y
+          sudo apt-get update
+          sudo apt-get install -y neovim
+      
+      - name: install dependencies
+        run: |
+          sudo apt-get install -y git curl unzip ripgrep fd-find
+
+      - name: set up neovim config
+        run: |
+          mkdir -p ~/.config/nvim
+          cp -r . ~/.config/nvim
+
+      - name: sync lazyvim plugins
+        run: |
+          nvim --headless "+Lazy! sync" +qa
+
+      - name: check health
+        run: |
+          nvim --headless "+checkhealth" +qa
+
+      - name: Test config loads cleanly
+        run: |
+          nvim --headless -c "quit"
