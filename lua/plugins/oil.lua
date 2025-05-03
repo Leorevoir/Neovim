@@ -1,8 +1,9 @@
 return {
-  'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
+  "stevearc/oil.nvim",
   opts = {},
-  dependencies = { { "rachartier/tiny-devicons-auto-colors.nvim", opts = {} } },
+  depencecies = { "rachartier/tiny-devicons-auto-colors.nvim" },
   lazy = false,
+  config = function()
+    require("oil").setup()
+  end,
 }
