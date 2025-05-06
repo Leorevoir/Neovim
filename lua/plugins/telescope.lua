@@ -9,7 +9,6 @@ return {
   cmd = "Telescope",
 
   config = function()
-
     require("telescope").setup({
       defaults = {
         layout_config = {
@@ -30,7 +29,6 @@ return {
           enable_preview = true,
         },
       },
-
     })
 
     require("telescope").load_extension("file_browser")
