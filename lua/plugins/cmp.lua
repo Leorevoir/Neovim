@@ -15,10 +15,10 @@ return {
       cmd = "Copilot",
       event = "InsertEnter",
       config = function()
-        require("copilot").setup {
+        require("copilot").setup({
           suggestion = { enabled = false },
           panel = { enabled = false },
-        }
+        })
       end,
     },
 
@@ -30,7 +30,7 @@ return {
     },
     {
       "giuxtaposition/blink-cmp-copilot",
-    }
+    },
   },
 
   config = function()
@@ -38,16 +38,34 @@ return {
     local luasnip = require("luasnip")
 
     local kind_icons = {
-      Text = "󰊄", Method = "", Function = "󰡱", Constructor = "",
-      Field = "", Variable = "󱀍", Class = "", Interface = "",
-      Module = "󰕳", Property = "", Unit = "", Value = "",
-      Enum = "", Keyword = "", Snippet = "", Color = "",
-      File = "", Reference = "", Folder = "", EnumMember = "",
-      Constant = "", Struct = "", Event = "", Operator = "",
+      Text = "󰊄",
+      Method = "",
+      Function = "󰡱",
+      Constructor = "",
+      Field = "",
+      Variable = "󱀍",
+      Class = "",
+      Interface = "",
+      Module = "󰕳",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
       TypeParameter = "",
     }
 
-    cmp.setup {
+    cmp.setup({
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -92,13 +110,13 @@ return {
         format = function(entry, vim_item)
           vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
           vim_item.menu = ({
-            copilot    = "[Copilot]",
-            nvim_lsp   = "[LSP]",
-            luasnip    = "[Snip]",
-            buffer     = "[Buf]",
-            path       = "[Path]",
-            emoji      = "[Emoji]",
-            cmdline    = "[Cmd]",
+            copilot = "[Copilot]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snip]",
+            buffer = "[Buf]",
+            path = "[Path]",
+            emoji = "[Emoji]",
+            cmdline = "[Cmd]",
           })[entry.source.name]
           return vim_item
         end,
@@ -118,7 +136,6 @@ return {
         completion = { border = "solid" },
         documentation = { border = "solid" },
       },
-
-    }
+    })
   end,
 }

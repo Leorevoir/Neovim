@@ -3,7 +3,6 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
 
   config = function()
-
     require("lualine").setup({
       options = {
         theme = "catppuccin",
@@ -34,9 +33,9 @@ return {
             sources = { "nvim_lsp" },
             symbols = {
               error = " ",
-              warn  = " ",
-              info  = " ",
-              hint  = "󰝶 ",
+              warn = " ",
+              info = " ",
+              hint = "󰝶 ",
             },
           },
           { "navic" },
@@ -61,6 +60,5 @@ return {
         },
       },
     })
-
   end,
 }

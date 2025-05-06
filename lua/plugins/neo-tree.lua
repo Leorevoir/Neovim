@@ -9,7 +9,6 @@ return {
   cmd = "Neotree",
 
   config = function()
-
     require("neo-tree").setup({
       add_blank_line_at_top = false,
       sources = { "filesystem", "buffers", "git_status", "document_symbols" },
@@ -20,20 +19,20 @@ return {
           enabled = true,
         },
 
---------------------------------
---- hide gitignore'd files & .git/
---------------------------------
+        --------------------------------
+        --- hide gitignore'd files & .git/
+        --------------------------------
 
-	filtered_items = {
+        filtered_items = {
           hide_dotfiles = false,
           hide_gitignored = true,
-	  hide_by_pattern = {
+          hide_by_pattern = {
             "^.git$",
           },
         },
       },
 
---------------------------------
+      --------------------------------
 
       default_component_configs = {
         indent = {
@@ -43,7 +42,7 @@ return {
           expander_highlight = "NeoTreeExpander",
         },
 
---------------------------------
+        --------------------------------
 
         git_status = {
           symbols = {
@@ -59,10 +58,8 @@ return {
           },
         },
 
---------------------------------
-
+        --------------------------------
       },
     })
-
   end,
 }

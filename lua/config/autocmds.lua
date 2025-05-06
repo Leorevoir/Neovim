@@ -8,9 +8,13 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
-    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") and vim.bo.filetype ~= "commit"
-      and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1 then
-      vim.cmd("normal! g`\"")
+    if
+      vim.fn.line("'\"") > 1
+      and vim.fn.line("'\"") <= vim.fn.line("$")
+      and vim.bo.filetype ~= "commit"
+      and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
+    then
+      vim.cmd('normal! g`"')
     end
   end,
 })
