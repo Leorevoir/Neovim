@@ -54,8 +54,9 @@ return {
     local mason_config = require("mason-lspconfig")
     local lspconfig = require("lspconfig")
 
-    mason_config.setup({ ensure_installed = vim.tbl_keys(opts.servers), automatic_installation = true })
-    mason_config.setup_handlers({
+    mason_config.setup({
+      ensure_installed = vim.tbl_keys(opts.servers),
+      automatic_installation = true,
       function(server)
         local cfg = vim.tbl_deep_extend("force", opts, opts.servers[server] or {})
         lspconfig[server].setup(cfg)
