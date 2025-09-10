@@ -22,6 +22,8 @@ return {
       markdown = { "prettier" },
       yaml = { "prettier" },
       json = { "jq" },
+      asm = { "asmfmt" },
+      scss = { "prettier" },
     },
   },
   config = function(_, opts)
