@@ -49,12 +49,8 @@ do
   autocmd("FileType", {
     pattern = { "alpha" },
     callback = function()
-      vim.schedule(function()
-        vim.opt_local.cursorline = false
-        vim.o.guicursor = "a:block-Cursor"
-        io.write("\27[?25l")
-        io.flush()
-      end)
+      io.write("\27[?25l")
+      io.flush()
     end,
   })
 
