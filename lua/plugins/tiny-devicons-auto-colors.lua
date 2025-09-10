@@ -19,6 +19,12 @@ return {
         cterm_color = "63",
         name = "Vert",
       },
+      comp = {
+        icon = "",
+        color = "#00ff00",
+        cterm_color = "34",
+        name = "Comp",
+      },
     })
   end,
 }
