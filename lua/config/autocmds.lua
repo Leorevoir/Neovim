@@ -23,9 +23,46 @@ autocmd("BufReadPost", {
 --- disable mini when pattern
 --------------------------------
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   pattern = { "help", "alpha", "neo-tree", "trouble", "notify" },
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
 })
+
+autocmd("User", {
+  pattern = "AlphaReady",
+  callback = function()
+    vim.opt_local.list = false
+    vim.b.miniindentscope_disable = true
+    pcall(function()
+      require("ibl").setup_buffer(0, { enabled = false })
+    end)
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.foldenable = false
+    vim.opt_local.signcolumn = "no"
+  end,
+})
+
+do
+  autocmd("FileType", {
+    pattern = { "alpha" },
+    callback = function()
+      vim.schedule(function()
+        vim.opt_local.cursorline = false
+        vim.o.guicursor = "a:block-Cursor"
+        io.write("\27[?25l")
+        io.flush()
+      end)
+    end,
+  })
+
+  autocmd({ "BufLeave", "BufWipeout", "VimLeavePre" }, {
+    pattern = "*",
+    callback = function()
+      io.write("\27[?25h")
+      io.flush()
+    end,
+  })
+end
