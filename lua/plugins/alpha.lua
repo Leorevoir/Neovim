@@ -39,7 +39,7 @@ return {
       "I use EndeavourOS and Neovim (btw)",
     }
 
-    dashboard.opts.opts.noautocmd = true
+    dashboard.opts.opts.noautocmd = false
     alpha.setup(dashboard.opts)
   end,
 }
