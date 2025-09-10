@@ -30,3 +30,4 @@ opts.fileencoding = "utf-8"
 opts.cmdheight = 0
 
 opts.showmode = false
+opts.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
