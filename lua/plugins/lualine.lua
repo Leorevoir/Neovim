@@ -5,7 +5,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "auto",
         globalstatus = true,
         extensions = { "fzf", "neo-tree" },
         disabled_filetypes = {
